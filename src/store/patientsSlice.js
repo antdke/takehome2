@@ -1,10 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { analyzePatientRisks } from "../utils/analyzePatientRisks";
 
 export const fetchPatients = createAsyncThunk(
   "patients/fetchPatients",
-  async () => {
+  async (_, { getState }) => {
     const response = await fetch("http://localhost:3001/patients");
-    return response.json();
+    const patients = await response.json();
+    const riskFactors = getState().riskFactors.list;
+
+    // Analyze risks for each patient
+    const patientsWithRisks = await Promise.all(
+      patients.map(async (patient) => {
+        const risks = await analyzePatientRisks(patient, riskFactors);
+        return { ...patient, risks };
+      }),
+    );
+
+    return patientsWithRisks;
   },
 );
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Container, Typography } from "@mui/material";
 import { fetchPatients } from "../store/patientsSlice";
+import { fetchRiskFactorsAsync } from "../store/riskFactorsSlice";
 import filterPatients from "../utils/filterPatients";
 import CaseTable from "./CaseTable";
 import FilterDropdown from "./FilterDropdown";
@@ -35,6 +36,7 @@ export default function Cases() {
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchPatients());
+      dispatch(fetchRiskFactorsAsync());
     }
   }, [status, dispatch]);
 

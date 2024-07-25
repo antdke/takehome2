@@ -98,5 +98,17 @@
       "notes": "Patient uses protective gloves at work.",
       "history": "Developed rash after using new detergent. No prior history of dermatitis."
     }
+  ],
+  "risk-factors": [
+    { "id": 1, "name": "Allergic reaction" },
+    { "id": 2, "name": "Medication interaction" },
+    { "id": 3, "name": "Smoking history" },
+    { "id": 4, "name": "Alcohol consumption" },
+    { "id": 5, "name": "Sun exposure" },
+    { "id": 6, "name": "Family history" },
+    { "id": 7, "name": "Stress" },
+    { "id": 8, "name": "Asthma" },
+    { "id": 9, "name": "Gluten sensitivity" },
+    { "id": 10, "name": "Occupational hazard" }
   ]
 }

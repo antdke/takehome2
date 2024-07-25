@@ -14,6 +14,7 @@ import {
   Box,
 } from "@mui/material";
 import formatTimeRemaining from "../utils/formatTimeRemaining";
+import RiskFactorsColumn from "./RiskFactorColumn";
 
 export default function CaseTable({ patients }) {
   return (
@@ -24,6 +25,7 @@ export default function CaseTable({ patients }) {
             <TableCell>Patient Name</TableCell>
             <TableCell>Patient Status</TableCell>
             <TableCell>Time</TableCell>
+            <TableCell>Risk Factors</TableCell>
             <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
@@ -50,6 +52,9 @@ export default function CaseTable({ patients }) {
                 {formatTimeRemaining(patient.timeElapsed)}
               </TableCell>
               <TableCell>
+                <RiskFactorsColumn risks={patient.risks || []} />
+              </TableCell>
+              <TableCell>
                 <Button variant="contained" color="primary">
                   Review Case
                 </Button>
@@ -70,6 +75,7 @@ CaseTable.propTypes = {
       lastName: PropTypes.string.isRequired,
       status: PropTypes.string.isRequired,
       timeElapsed: PropTypes.number.isRequired,
+      risks: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
 };
