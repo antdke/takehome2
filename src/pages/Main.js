@@ -1,5 +1,5 @@
 import CustomAppBar from "../components/CustomAppBar";
-import Cases from "./Cases";
+import Cases from "../components/Cases";
 
 export default function Main() {
   return (
