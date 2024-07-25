@@ -12,7 +12,7 @@ function filterPatients(patients, filters) {
   return patients.filter((patient) => {
     return Object.entries(filters).every(([key, value]) => {
       if (!value) return true;
-      if (key === "allergies") {
+      if (key === "allergies" || key === "medications") {
         return patient[key].split(", ").includes(value);
       }
       return patient[key] === value;

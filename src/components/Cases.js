@@ -24,6 +24,11 @@ export default function Cases() {
           patients.flatMap((patient) => patient.allergies.split(", ")),
         ),
       ],
+      medications: [
+        ...new Set(
+          patients.flatMap((patient) => patient.medications.split(", ")),
+        ),
+      ],
     };
   }, [patients]);
 
