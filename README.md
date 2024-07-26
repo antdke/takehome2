@@ -40,6 +40,10 @@ This app will be used by dermatologists when they review a patient's case.
   - You may also see any lint errors in the console.
 - I have created a simple component and the first page in the `src/components` and `src/pages` respectively to save time on boilerplate code setup. You can use them as needed.
 
+## Loom Recording
+
+🎬 [Loom Recording Link](https://www.loom.com/share/082bb91cbbf54c00b85533c26110cdc2?sid=2d6190cf-ae07-4bb8-b881-564134ae7845)
+
 ## Network Flow
 
 ### Sequence Diagram
