@@ -1,3 +1,10 @@
+/**
+ * Fetches risk factors from the server.
+ * @async
+ * @function fetchRiskFactors
+ * @returns {Promise<string[]>} A promise that resolves to an array of risk factor names.
+ * @throws {Error} If there's an error fetching the risk factors.
+ */
 export async function fetchRiskFactors() {
   try {
     const response = await fetch("http://localhost:3001/risk-factors");
