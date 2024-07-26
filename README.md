@@ -39,3 +39,36 @@ This app will be used by dermatologists when they review a patient's case.
   - The page will reload when you make changes.
   - You may also see any lint errors in the console.
 - I have created a simple component and the first page in the `src/components` and `src/pages` respectively to save time on boilerplate code setup. You can use them as needed.
+
+## Network Flow
+
+### Sequence Diagram
+
+![Sequence Diagram](takehome2-sequence-diagram.png)
+
+### Explanation
+
+This sequence diagram illustrates the network flow and interactions between different components of the application:
+
+1. **Fetching Patients Data**:
+
+   - The React Client dispatches the `fetchPatients()` action to the Redux Store.
+   - The Redux Store sends a GET request to the JSON Server to fetch patients data.
+   - The JSON Server returns the patients data to the Redux Store.
+   - The Redux Store updates the React Client with the fetched patients data.
+
+2. **Fetching Risk Factors**:
+
+   - The React Client dispatches the `fetchRiskFactorsAsync()` action to the Redux Store.
+   - The Redux Store sends a GET request to the JSON Server to fetch risk factors.
+   - The JSON Server returns the risk factors to the Redux Store.
+   - The Redux Store updates the React Client with the fetched risk factors.
+
+3. **Analyzing Patient Risks**:
+   - The Redux Store sends a POST request to the Express Server to analyze risks for each patient.
+   - The Express Server forwards the patient data to the OpenAI API for analysis.
+   - OpenAI returns the analyzed risks to the Express Server.
+   - The Express Server sends the analyzed risks back to the Redux Store.
+   - The Redux Store updates the React Client with the analyzed risks for each patient.
+
+This flow ensures that the application fetches all necessary data and performs risk analysis for patients, providing a useful view for dermatologists reviewing patient cases.
